@@ -1,0 +1,19 @@
+{
+	"name": "curl",
+	"source": {
+		"type": "archive",
+		"url": "http://curl.haxx.se/download/curl-7.34.0.tar.bz2",
+		"hash": "548fe1686d01d689f79ed8cedc879309f8f5035b"
+	},
+	"tasks": [
+		{
+			"type": "bash",
+			"script": "./configure --enable-static --prefix='{{TargetDirectory}}'",
+			"expectedExitCodes": [2]
+		},
+		{
+			"type": "make",
+			"targets": ["all", "install"]
+		}
+	]
+}
